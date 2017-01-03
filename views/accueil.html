@@ -4,6 +4,11 @@
 
 <p>Retour de soirée ? Tu veux savoir si tu peux conduire ?</p>
 
-<form action="">
-    <input type="checkbox">
+<form ng-submit="accueil.submit()">
+    <label>
+        <input type="checkbox" ng-model="accueil.confirm">
+        Tu es responsable de ta sécurité
+    </label>
+    <br>
+    <input type="submit" ng-disabled="!accueil.confirm">
 </form>

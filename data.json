@@ -16,7 +16,7 @@
                 {"reponse" : "Le 2ème", "valid" : true},
                 {"reponse" : "Le 1er", "valid" : false},
                 {"reponse" : "J'ai gagné !", "valid" : false},
-                {"reponse" : "Le dernier", "valid" : false},
+                {"reponse" : "Le dernier", "valid" : false}
             ]
         }
     ]
