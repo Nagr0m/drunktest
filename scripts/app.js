@@ -28,9 +28,12 @@ app.config(function($routeProvider) {
 });
 
 // Contrôleur de la page d'accueil
-app.controller('AccueilCtrl', function() {
+app.controller('AccueilCtrl', function($location) {
 	let accueil = this;
-
+	accueil.confirm = false;
+	accueil.submit = function() {
+		$location.url('/questions');
+	};
 });
 
 // Contrôleur de la page des scores
