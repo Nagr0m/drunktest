@@ -3,13 +3,20 @@
         {
             "question" : "Calculez 2 + 96791 ?",
             "reponses" : [
-                "OSEF !", "96793", "29763", "92687", "296793"
+                {"reponse" : "OSEF !", "valid" : false},
+                {"reponse" : "96793", "valid" : true},
+                {"reponse" : "29763", "valid" : false},
+                {"reponse" : "92687", "valid" : false},
+                {"reponse" : "296793", "valid" : false}
             ]
         },
         {
             "question" : "Dans une course à pieds, je double le 2ème ! Je suis donc :",
             "reponses" : [
-                "Le 2ème", "Le 1er", "J'ai gagné !"
+                {"reponse" : "Le 2ème", "valid" : true},
+                {"reponse" : "Le 1er", "valid" : false},
+                {"reponse" : "J'ai gagné !", "valid" : false},
+                {"reponse" : "Le dernier", "valid" : false},
             ]
         }
     ]
