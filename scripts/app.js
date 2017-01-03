@@ -43,16 +43,18 @@ app.controller('ScoresCtrl', function() {
 });
 
 // Contrôleur de la page des questions
-app.controller('QuestionsCtrl', function($http) {
+app.controller('QuestionsCtrl', function($http, $scope) {
 	let questions = this;
-
-	questions.nextStatut = false;
+	let questRandom = Math.ceil(Math.random()*4);
 
 	questions.list = [];
+	questions.actuel = [];
 	$http.get('/data.json').then(function(response){
-		questions.list = response.data.questions;
+		questions.list = response.data;
+		questions.actuel = questions.list[questRandom];
 	});
 
+	questions.nextStatut = false;
 	questions.nextQuestion = function(){
 		questions.nextStatut = true;
 	};

@@ -11,11 +11,11 @@
 
 <div class="timer"></div>
 
-<div class="questions" ng-repeat="question in questions.list">
-	<p>{{question.question}}</p>
+<div class="questions">
+	<p>{{questions.actuel.question}}</p>
 
 	<form>
-		<label ng-repeat="reponse in question.reponses">
+		<label ng-repeat="reponse in questions.actuel.reponses">
 			<p>{{reponse.reponse}}
 				<input name="reponse" type="radio" ng-click="questions.nextQuestion()">
 			</p>
