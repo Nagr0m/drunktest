@@ -1,0 +1,19 @@
+{
+  "name": "undrunk-starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "angular": "^1.5.9",
+    "angular-route": "^1.6.1"
+  },
+  "devDependencies": {
+    "live-server": "^1.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node_modules/.bin/live-server --port=1337"
+  },
+  "author": "",
+  "license": "MIT"
+}

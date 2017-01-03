@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Undrunk</title>
+
+	<link rel="stylesheet" type="text/css" href="styles/app.css">
+</head>
+<body ng-app="UndrunkApp">
+
+	<h1>Undrunk app</h1>
+
+	<nav>
+		<a href="/#/accueil">Accueil</a>
+		<a href="/#/scores">Scores</a>
+		<a href="/#/questions">Questions</a>
+	</nav>
+	<hr>
+
+	<div ng-view></div>
+
+	<script src="node_modules/angular/angular.js"></script>
+	<script src="node_modules/angular-route/angular-route.js"></script>
+	<script src="scripts/app.js"></script>
+
+</body>
+</html>
