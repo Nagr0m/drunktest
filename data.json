@@ -16,7 +16,31 @@
                 {"reponse" : "Le 2ème", "valid" : true},
                 {"reponse" : "Le 1er", "valid" : false},
                 {"reponse" : "J'ai gagné !", "valid" : false},
-                {"reponse" : "Le dernier", "valid" : false},
+                {"reponse" : "Le dernier", "valid" : false}
+            ]
+        },
+        {
+            "question" : "José a 290 timbres dans sa collection. Léa en a 250. Combien ont-ils de timbres en tout ?",
+            "reponses" : [
+                {"reponse" : "530", "valid" : false},
+                {"reponse" : "560", "valid" : false},
+                {"reponse" : "540", "valid" : true},
+                {"reponse" : "550", "valid" : false}
+            ]
+        },
+        {
+            "question" : "Un homme a-t-il le droit d'épouser la soeur de sa veuve ?",
+            "reponses" : [
+                {"reponse" : "Oui", "valid" : false},
+                {"reponse" : "Non", "valid" : true}
+            ]
+        },
+        {
+            "question" : "Un avion s'écrase à la frontière franco-espagnole. De quel cote de la frontière doit-on enterrer les rescapés ?",
+            "reponses" : [
+                {"reponse" : "En France", "valid" : false},
+                {"reponse" : "En Espagne", "valid" : false},
+                {"reponse" : "Autre", "valid" : true}
             ]
         }
     ]

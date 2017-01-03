@@ -1,1 +1,25 @@
 <h1>Questions</h1>
+
+<h2>Angular Drunk Test</h2>
+<hr>
+
+<h3>Question 1</h3>
+
+<div class="score">
+	<p>Score <span>1</span></p>
+</div>
+
+<div class="timer"></div>
+
+<div class="questions" ng-repeat="question in questions.list">
+	<p>{{question.question}}</p>
+
+	<form>
+		<label ng-repeat="reponse in question.reponses">
+			<p>{{reponse.reponse}}
+				<input name="reponse" type="radio" ng-click="questions.nextQuestion()">
+			</p>
+		</label>
+		<input type="submit" value="Question suivante" ng-show="questions.nextStatut">
+	</form>
+</div>

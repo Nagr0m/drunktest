@@ -40,7 +40,17 @@ app.controller('ScoresCtrl', function() {
 });
 
 // Contrôleur de la page des questions
-app.controller('QuestionsCtrl', function() {
+app.controller('QuestionsCtrl', function($http) {
 	let questions = this;
 
+	questions.nextStatut = false;
+
+	questions.list = [];
+	$http.get('/data.json').then(function(response){
+		questions.list = response.data.questions;
+	});
+
+	questions.nextQuestion = function(){
+		questions.nextStatut = true;
+	};
 });
