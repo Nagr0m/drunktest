@@ -1,0 +1,16 @@
+{
+    "questions" : [
+        {
+            "question" : "Calculez 2 + 96791 ?",
+            "reponses" : [
+                "OSEF !", "96793", "29763", "92687", "296793"
+            ]
+        },
+        {
+            "question" : "Dans une course à pieds, je double le 2ème ! Je suis donc :",
+            "reponses" : [
+                "Le 2ème", "Le 1er", "J'ai gagné !"
+            ]
+        }
+    ]
+}
