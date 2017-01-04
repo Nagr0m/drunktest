@@ -37,9 +37,11 @@ app.controller('AccueilCtrl', function($location) {
 });
 
 // Contrôleur de la page des scores
-app.controller('ScoresCtrl', function() {
+app.controller('ScoresCtrl', function($http) {
 	let scores = this;
-
+	$http.get('https://api.myjson.com/bins/chuon').then(function(response){
+		console.log(response);
+	});
 });
 
 // Contrôleur de la page des questions
