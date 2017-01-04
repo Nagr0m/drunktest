@@ -66,7 +66,11 @@ app.controller('QuestionsCtrl', function($http, shuffleArray, $interval) {
 		questions.nextStatut = true;	
 	};
 
-	// Partie timer 
+	questions.timerOut = function(){
+		questions.nextStatut = true;	
+	};
+
+	// Partie timer !
 	const MAX_TIME = 7000; // 7 secondes
 	questions.timer = 100;
 	
@@ -74,7 +78,7 @@ app.controller('QuestionsCtrl', function($http, shuffleArray, $interval) {
 		questions.timer -= 100 / (MAX_TIME/ (1000/60) );
 		
 		if (questions.timer <= 0) {
-			questions.submit();
+			questions.timerOut();
 		}
 	}, 1000/60);
 
@@ -83,8 +87,10 @@ app.controller('QuestionsCtrl', function($http, shuffleArray, $interval) {
 	questions.submit = function() {
 		questions.index++;
 		console.log(questions.reponse);
+		console.log(questions.list[questions.index].reponses);
 		questions.reponse = undefined;
 		questions.timer = 100; // Réinitialisation du timer
+
 
 		if(reponse)
 	};
