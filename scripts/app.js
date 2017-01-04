@@ -64,12 +64,6 @@ app.controller('QuestionsCtrl', function($http, shuffleArray, $interval) {
 		questions.nextStatut = true;	
 	};
 
-	questions.submit = function() {
-		questions.index++;
-		console.log(questions.reponse);
-		questions.reponse = undefined;
-	};
-
 	// Partie timer !
 	const MAX_TIME = 7000; // 7 secondes
 	questions.timer = 100;
@@ -83,10 +77,9 @@ app.controller('QuestionsCtrl', function($http, shuffleArray, $interval) {
 	}, 1000/60);
 
 	questions.submit = function() {
-		// Vérifier si la réponse est correcte + cumul des points... 
-		// ...
-
-		// Passage à la question suivante
+		questions.index++;
+		console.log(questions.reponse);
+		questions.reponse = undefined;
 		questions.timer = 100; // Réinitialisation du timer
 	};
 	
