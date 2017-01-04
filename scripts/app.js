@@ -45,7 +45,7 @@ app.controller('ScoresCtrl', function($http) {
 });
 
 // Contrôleur de la page des questions
-app.controller('QuestionsCtrl', function($http, shuffleArray) {
+app.controller('QuestionsCtrl', function($http, shuffleArray, $interval) {
 	let questions = this;
 	let questRandom = Math.ceil(Math.random()*4);
 
@@ -61,6 +61,27 @@ app.controller('QuestionsCtrl', function($http, shuffleArray) {
 	questions.nextQuestion = function(){
 		questions.nextStatut = true;
 	};
+
+	// Partie timer !
+	const MAX_TIME = 7000; // 7 secondes
+	questions.timer = 100;
+	
+	let interval = $interval(function() {
+		questions.timer -= 100 / (MAX_TIME/ (1000/60) );
+		
+		if (questions.timer <= 0) {
+			questions.submit();
+		}
+	}, 1000/60);
+
+	questions.submit = function() {
+		// Vérifier si la réponse est correcte + cumul des points... 
+		// ...
+
+		// Passage à la question suivante
+		questions.timer = 100; // Réinitialisation du timer
+	};
+	
 });
 
 
