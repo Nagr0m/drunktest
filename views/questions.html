@@ -15,7 +15,7 @@
 	<p>{{questions.actuel.question}}</p>
 
 	<form>
-		<label ng-repeat="reponse in questions.actuel.reponses">
+		<label ng-repeat="reponse in questions.actuel.reponses |orderBy:questions.random">
 			<p>{{reponse.reponse}}
 				<input name="reponse" type="radio" ng-click="questions.nextQuestion()">
 			</p>
