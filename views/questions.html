@@ -19,8 +19,9 @@
 
 	<form ng-submit="questions.submit()">
 		<label ng-repeat="reponse in questions.list[questions.index].reponses">
-			<label>{{reponse.reponse}}
-				<input name="radioreponse" type="radio" ng-click="questions.nextQuestion()" value="{{reponse.valid}}" ng-model="questions.reponse">
+			<label>
+				{{reponse.reponse}}
+				<input name="radioreponse" type="radio" ng-click="questions.nextQuestion()" value="{{reponse.reponse}}" ng-model="questions.reponse">
 			</label>
 		</label>
 		<input type="submit" value="Question suivante" ng-show="questions.nextStatut">
