@@ -45,23 +45,35 @@ app.controller('ScoresCtrl', function($http) {
 });
 
 // Contrôleur de la page des questions
-app.controller('QuestionsCtrl', function($http, $scope) {
+app.controller('QuestionsCtrl', function($http, shuffleArray) {
 	let questions = this;
 	let questRandom = Math.ceil(Math.random()*4);
 
 	questions.list = [];
-	questions.actuel = [];
+	questions.actuels = [];
 	$http.get('/data.json').then(function(response){
-		questions.list = response.data;
-		questions.actuel = questions.list[questRandom];
+		questions.list = shuffleArray.shuffle(response.data);
+		questions.actuel = questions.list.slice(0, 5);
+		console.log(questions.actuel);
 	});
-
-	questions.random = function() {
-        return 0.5 - Math.random();
-    }
 
 	questions.nextStatut = false;
 	questions.nextQuestion = function(){
 		questions.nextStatut = true;
+	};
+});
+
+
+app.factory('shuffleArray', function() {
+	return {
+		shuffle : function(d) {
+			for (var c = d.length - 1; c > 0; c--) {
+				var b = Math.floor(Math.random() * (c + 1));
+				var a = d[c];
+				d[c] = d[b];
+				d[b] = a;
+			}
+			return d
+		}
 	};
 });
