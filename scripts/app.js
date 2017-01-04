@@ -66,6 +66,8 @@ app.controller('QuestionsCtrl', function($http, shuffleArray) {
 
 	questions.submit = function() {
 		questions.index++;
+		console.log(questions.reponse);
+		questions.reponse = undefined;
 	};
 });
 
