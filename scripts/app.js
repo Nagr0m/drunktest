@@ -47,19 +47,25 @@ app.controller('ScoresCtrl', function($http) {
 // Contrôleur de la page des questions
 app.controller('QuestionsCtrl', function($http, shuffleArray, $interval) {
 	let questions = this;
-	let questRandom = Math.ceil(Math.random()*4);
+	questions.nextStatut = false;
 
 	questions.list = [];
-	questions.actuels = [];
+	questions.actuel = [];
 	$http.get('/data.json').then(function(response){
 		questions.list = shuffleArray.shuffle(response.data);
-		questions.actuel = questions.list.slice(0, 5);
-		console.log(questions.actuel);
+		questions.list = questions.list.slice(0, 5);
 	});
+	
+	questions.index = 0;
+	questions.actuel = questions.list[questions.index];
+	console.log(questions.list);
 
-	questions.nextStatut = false;
 	questions.nextQuestion = function(){
-		questions.nextStatut = true;
+		questions.nextStatut = true;	
+	};
+
+	questions.submit = function() {
+		questions.index++;
 	};
 
 	// Partie timer !
@@ -94,7 +100,7 @@ app.factory('shuffleArray', function() {
 				d[c] = d[b];
 				d[b] = a;
 			}
-			return d
+			return d;
 		}
 	};
 });
