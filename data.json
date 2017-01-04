@@ -41,5 +41,47 @@
             {"reponse" : "En Espagne", "valid" : false},
             {"reponse" : "Autre", "valid" : true}
         ]
+    },
+    {
+        "question" : "Quelle est la capital du Danemark",
+        "reponses" : [
+            {"reponse" : "Istanbul", "valid" : false},
+            {"reponse" : "Stockholm", "valid" : false},
+            {"reponse" : "Copenhague", "valid" : true},
+            {"reponse" : "Prague", "valid" : false}
+        ]
+    },
+    {
+        "question" : "Si avant hier c'était Lundi, quel sera le jour la veille d'après demain ?",
+        "reponses" : [
+            {"reponse" : "Mercredi", "valid" : false},
+            {"reponse" : "Jeudi", "valid" : true},
+            {"reponse" : "Vendredi", "valid" : false}
+        ]
+    },
+    {
+        "question" : "La belle-mère de la soeur du père du cousin de la tante de ta mère m'a dit la date d'aujourd'hui. Qui m'a donné la date ?",
+        "reponses" : [
+            {"reponse" : "Ta mère", "valid" : false},
+            {"reponse" : "Le père", "valid" : false},
+            {"reponse" : "La belle-mère", "valid" : true}
+        ]
+    },{
+        "question" : "Quelle est la réponse à la vie ?",
+        "reponses" : [
+            {"reponse" : "L'amour", "valid" : false},
+            {"reponse" : "42", "valid" : false},
+            {"reponse" : "L'argent", "valid" : false},
+            {"reponse" : "40", "valid" : false},
+            {"reponse" : "Bender", "valid" : false}
+        ]
+    },
+    {
+        "question" : "Quel est la formule chimique de l'acide carbonique ?",
+        "reponses" : [
+            {"reponse" : "H2CO3", "valid" : true},
+            {"reponse" : "H2O", "valid" : false},
+            {"reponse" : "CO2H3U", "valid" : false}
+        ]
     }
 ]
