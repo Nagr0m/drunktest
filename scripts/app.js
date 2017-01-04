@@ -56,10 +56,6 @@ app.controller('QuestionsCtrl', function($http, $scope) {
 		questions.actuel = questions.list[questRandom];
 	});
 
-	questions.random = function() {
-        return 0.5 - Math.random();
-    }
-
 	questions.nextStatut = false;
 	questions.nextQuestion = function(){
 		questions.nextStatut = true;
