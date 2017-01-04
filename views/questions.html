@@ -12,12 +12,13 @@
 <div class="timer"></div>
 
 <div class="questions">
+	<p>{{questions.list[questions.index].question}}</p>
 	<p>{{questions.actuel.question}}</p>
 
-	<form>
-		<label ng-repeat="reponse in questions.actuel.reponses |orderBy:questions.random">
+	<form ng-submit="questions.submit()">
+		<label ng-repeat="reponse in questions.list[questions.index].reponses">
 			<p>{{reponse.reponse}}
-				<input name="reponse" type="radio" ng-click="questions.nextQuestion()">
+				<input name="reponse" type="radio" ng-click="questions.nextQuestion()" value="{{reponse.valid}}">
 			</p>
 		</label>
 		<input type="submit" value="Question suivante" ng-show="questions.nextStatut">
