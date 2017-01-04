@@ -49,6 +49,7 @@ app.controller('QuestionsCtrl', function($http, shuffleArray, $interval) {
 	let questions = this;
 	questions.nextStatut = false;
 
+	// Récupération des questions
 	questions.list = [];
 	questions.actuel = [];
 	$http.get('/data.json').then(function(response){
@@ -60,11 +61,12 @@ app.controller('QuestionsCtrl', function($http, shuffleArray, $interval) {
 	questions.actuel = questions.list[questions.index];
 	console.log(questions.list);
 
+	// Button " Question Suivante "
 	questions.nextQuestion = function(){
 		questions.nextStatut = true;	
 	};
 
-	// Partie timer !
+	// Partie timer 
 	const MAX_TIME = 7000; // 7 secondes
 	questions.timer = 100;
 	
@@ -76,13 +78,20 @@ app.controller('QuestionsCtrl', function($http, shuffleArray, $interval) {
 		}
 	}, 1000/60);
 
+	questions.scoring = 1;
+
 	questions.submit = function() {
 		questions.index++;
 		console.log(questions.reponse);
 		questions.reponse = undefined;
 		questions.timer = 100; // Réinitialisation du timer
+
+		if(reponse)
 	};
+
+
 	
+
 });
 
 
