@@ -21,6 +21,11 @@ app.config(function($routeProvider) {
 			controller   : 'QuestionsCtrl',
 			controllerAs : 'questions'
 		})
+		.when('/resultat', {
+			templateUrl  : 'views/resultat.html',
+			controller   : 'ResultatCtrl',
+			controllerAs : 'resultat'
+		})
 		.otherwise({
 			redirectTo	 : '/accueil'
 		});
@@ -31,9 +36,6 @@ app.config(function($routeProvider) {
 app.controller('AccueilCtrl', function($location) {
 	let accueil = this;
 	accueil.confirm = false;
-	accueil.submit = function() {
-		$location.url('/questions');
-	};
 });
 
 // Contrôleur de la page des scores
@@ -45,7 +47,7 @@ app.controller('ScoresCtrl', function($http) {
 });
 
 // Contrôleur de la page des questions
-app.controller('QuestionsCtrl', function($http, shuffleArray, $interval) {
+app.controller('QuestionsCtrl', function($http, shuffleArray, $interval, $location, $rootScope) {
 	let questions = this;
 	questions.nextStatut = false;
 	questions.list = [];
@@ -53,21 +55,15 @@ app.controller('QuestionsCtrl', function($http, shuffleArray, $interval) {
 	questions.index = 0;
 	questions.score = 1;
 
+	// Initialisation des questions
 	$http.get('/data.json').then(function(response){
 		questions.temp = shuffleArray.shuffle(response.data);
-		questions.list = questions.temp.slice(0, 5);
+		questions.temp = questions.temp.slice(0, 5);
+		questions.list = questions.temp.map(function(a) {shuffleArray.shuffle(a.reponses); return a;});
 	});
-	
-	
-	questions.actuel = questions.list[questions.index];
-	console.log(questions.list);
 
-	// Button " Question Suivante "
-	questions.nextQuestion = function(){
-		questions.nextStatut = true;	
-	};
-
-	questions.timerOut = function(){
+	// Affichage boutton "Question suivante"
+	questions.nextQuestion = function() {
 		questions.nextStatut = true;	
 	};
 
@@ -79,24 +75,45 @@ app.controller('QuestionsCtrl', function($http, shuffleArray, $interval) {
 		questions.timer -= 100 / (MAX_TIME/ (1000/60) );
 		
 		if (questions.timer <= 0) {
-			questions.timerOut();
+			questions.nextQuestion();
 		}
 	}, 1000/60);
 
+	// Validation des questions
 	questions.submit = function() {
-		console.log(questions.reponse);
-		console.log(questions.list[questions.index].reponses.find(function(a) {return a.valid === true;}).reponse);
-		if (questions.reponse === questions.list[questions.index].reponses.find(function(a) {return a.valid === true;}).reponse) {
-			questions.score = questions.score + 2;
+		console.log(questions.index)
+		let bonnereponse = questions.list[questions.index].reponses.find(function(a) {return a.valid === true;}).reponse;
+		if (questions.reponse === bonnereponse) {
+			if (questions.timer >= 50) {
+				questions.score = questions.score + 2;
+				console.log('true>50');
+			} else if (questions.timer < 50) {
+				questions.score = questions.score + 1;
+				console.log('true<50');
+			}
 		} else {
 			questions.score = questions.score -2;
+			console.log('false');
+		}
+		if (questions.index === 4) {
+			console.log('toto');
+			$rootScope.resultatfinal = questions.score;
+			$location.url('/resultat');
+			return;
 		}
 
+		questions.nextStatut = false;
 		questions.reponse = undefined;
 		questions.timer = 100; // Réinitialisation du timer
 		questions.index++;
 	};
 
+});
+
+app.controller('ResultatCtrl', function($rootScope) {
+	let resultat = this;
+
+	resultat.resultatfinal = $rootScope.resultatfinal;
 });
 
 

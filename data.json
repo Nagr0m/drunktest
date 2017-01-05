@@ -70,7 +70,7 @@
         "question" : "Quelle est la réponse à la vie ?",
         "reponses" : [
             {"reponse" : "L'amour", "valid" : false},
-            {"reponse" : "42", "valid" : false},
+            {"reponse" : "42", "valid" : true},
             {"reponse" : "L'argent", "valid" : false},
             {"reponse" : "40", "valid" : false},
             {"reponse" : "Bender", "valid" : false}
