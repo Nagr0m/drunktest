@@ -1,13 +1,15 @@
-<h1>Accueil</h1>
+<nav>
+	<a href="/#/scores">Tableau des scores >></a>
+</nav>
 
 <h2>Est-tu en état de conduire ?</h2>
 
-<p>Retour de soirée ? Tu veux savoir si tu peux conduire ?</p>
+<p>Retour de soirée ? Tu veux savoir si tu peux conduire ? Répond aux 5 questions qui suivent pour le savoir ! Tu as 7 secondes pour répondre par question. On va voir si ton cerveau baigne ou pas ! HAHAHAHA</p>
 
-<form ng-submit="accueil.submit()">
+<form ng-submit="accueil.submit()" id="first-form">
     <label>
         <input type="checkbox" ng-model="accueil.confirm">
-        Tu es responsable de ta sécurité
+        Tu es responsable de ta sécurité !
     </label>
     <br>
     <input type="submit" ng-disabled="!accueil.confirm">

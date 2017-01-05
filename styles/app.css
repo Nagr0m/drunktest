@@ -5,9 +5,12 @@
 }
 
 html {
-	font-family: 'Open Sans', Arial, sans-serif;
+	font-family: 'Montserrat', sans-serif;
 	font-size: 16px;
-	color: #333;
+	color: #494953;
+}
+body {
+	background:#F8F6F6;
 }
 label {
 	display: block; 
@@ -24,4 +27,43 @@ label {
 	width: 100%;
 	height: 3px;
 	background-color: cornflowerblue;
+}
+
+section {
+	width:100%;
+	max-width:640px;
+	height:auto;
+	padding:10px 20px;
+	background:#FFF;
+	margin:5% auto 0;
+}
+section h1 {
+	text-align:center;
+	text-transform:uppercase;
+	font-size:30px;
+	font-weight:700;
+}
+section hr {
+	width:50%;
+	border:none;
+	height:1px;
+	background:#41EECB;
+	margin:15px auto;
+}
+section nav {
+	text-align:right;
+}
+section nav a {
+	text-decoration:none;
+	color:#494953;
+	font-size:14px;
+}
+#first-form {
+	text-align:center;
+	margin:50px auto;
+}
+#first-form input[type=checkbox] {
+	border:none;
+	background:#666;
+
 }

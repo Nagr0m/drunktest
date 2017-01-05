@@ -5,18 +5,16 @@
 	<title>Undrunk</title>
 
 	<link rel="stylesheet" type="text/css" href="styles/app.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
 </head>
 <body ng-app="UndrunkApp">
+	<section>
+		<h1>Undrunk app</h1>
 
-	<h1>Undrunk app</h1>
+		<hr>
 
-	<nav>
-		<a href="/#/accueil">Accueil</a>
-		<a href="/#/scores">Scores</a>
-	</nav>
-	<hr>
-
-	<div ng-view></div>
+		<div ng-view></div>
+	</section>
 
 	<script src="node_modules/angular/angular.js"></script>
 	<script src="node_modules/angular-route/angular-route.js"></script>
