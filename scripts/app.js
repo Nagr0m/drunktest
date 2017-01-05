@@ -87,12 +87,14 @@ app.controller('QuestionsCtrl', function($http, shuffleArray, $interval) {
 	questions.submit = function() {
 		questions.index++;
 		console.log(questions.reponse);
-		console.log(questions.list[questions.index].reponses);
 		questions.reponse = undefined;
 		questions.timer = 100; // Réinitialisation du timer
 
-
-		if(reponse)
+		if(questions.list.reponses.valid === true) {
+			questions.scoring = questions.scoring + 2;
+		}else{
+			questions.scoring = questions.scoring - 2;
+		}
 	};
 
 
