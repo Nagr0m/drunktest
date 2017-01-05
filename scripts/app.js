@@ -21,6 +21,11 @@ app.config(function($routeProvider) {
 			controller   : 'QuestionsCtrl',
 			controllerAs : 'questions'
 		})
+		.when('/resultat', {
+			templateUrl  : 'views/resultat.html',
+			controller   : 'ResultatCtrl',
+			controllerAs : 'resultat'
+		})
 		.otherwise({
 			redirectTo	 : '/accueil'
 		});
@@ -31,9 +36,6 @@ app.config(function($routeProvider) {
 app.controller('AccueilCtrl', function($location) {
 	let accueil = this;
 	accueil.confirm = false;
-	accueil.submit = function() {
-		$location.url('/questions');
-	};
 });
 
 // Contrôleur de la page des scores
@@ -45,29 +47,24 @@ app.controller('ScoresCtrl', function($http) {
 });
 
 // Contrôleur de la page des questions
-app.controller('QuestionsCtrl', function($http, shuffleArray, $interval) {
+app.controller('QuestionsCtrl', function($http, shuffleArray, $interval, $location, $rootScope) {
 	let questions = this;
 	questions.nextStatut = false;
-
-	// Récupération des questions
 	questions.list = [];
 	questions.actuel = [];
-	$http.get('/data.json').then(function(response){
-		questions.list = shuffleArray.shuffle(response.data);
-		questions.list = questions.list.slice(0, 5);
-	});
-	
 	questions.index = 0;
-	questions.actuel = questions.list[questions.index];
-	console.log(questions.list);
+	questions.score = 1;
 
-	// Button " Question Suivante "
-	questions.nextQuestion = function(){
-		questions.nextStatut = true;	
-	};
+	// Initialisation des questions
+	$http.get('/data.json').then(function(response){
+		questions.temp = shuffleArray.shuffle(response.data);
+		questions.temp = questions.temp.slice(0, 5);
+		questions.list = questions.temp.map(function(a) {shuffleArray.shuffle(a.reponses); return a;});
+	});
 
-	questions.timerOut = function(){
-		questions.nextStatut = true;	
+	// Affichage boutton "Question suivante"
+	questions.nextQuestion = function() {
+		questions.nextStatut = true;
 	};
 
 	// Partie timer !
@@ -78,27 +75,46 @@ app.controller('QuestionsCtrl', function($http, shuffleArray, $interval) {
 		questions.timer -= 100 / (MAX_TIME/ (1000/60) );
 		
 		if (questions.timer <= 0) {
-			questions.timerOut();
+			questions.nextQuestion();
 		}
 	}, 1000/60);
 
-	questions.scoring = 1;
-
+	// Validation des questions
 	questions.submit = function() {
-		questions.index++;
-		console.log(questions.reponse);
+		console.log(questions.index);
+		let bonnereponse = questions.list[questions.index].reponses.find(function(a) {return a.valid === true;}).reponse;
+		if (questions.reponse === bonnereponse) {
+			if (questions.timer >= 50) {
+				questions.score = questions.score + 2;
+				console.log('true>50');
+			} else if (questions.timer < 50) {
+				questions.score = questions.score + 1;
+				console.log('true<50');
+			}
+		} else {
+			questions.score = questions.score -2;
+			console.log('false');
+		}
+		if (questions.index === 4) {
+			console.log('toto');
+			$rootScope.resultatfinal = questions.score;
+			$location.url('/resultat');
+			return;
+		}
+
+		questions.nextStatut = false;
 		questions.reponse = undefined;
 		questions.timer = 100; // Réinitialisation du timer
-
-		if(questions.list.reponses.valid === true) {
-			questions.scoring = questions.scoring + 2;
-		}else{
-			questions.scoring = questions.scoring - 2;
-		}
+		questions.index++;
 	};
 
+});
 
-	
+// Contrôleur de la page du resultat
+app.controller('ResultatCtrl', function($rootScope) {
+	let resultat = this;
+
+	resultat.resultatfinal = $rootScope.resultatfinal;
 
 });
 

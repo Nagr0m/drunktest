@@ -6,7 +6,7 @@
 <h3>Question 1</h3>
 
 <div class="score">
-	<p>Score <span>{{questions.scoring}}</span></p>
+	<p>Score <span>{{questions.score}}</span></p>
 </div>
 
 <div id="timer">
@@ -15,14 +15,11 @@
 
 <div class="questions">
 	<p>{{questions.list[questions.index].question}}</p>
-	<p>{{questions.actuel.question}}</p>
 
 	<form ng-submit="questions.submit()">
 		<label ng-repeat="reponse in questions.list[questions.index].reponses">
-			<label>
 				{{reponse.reponse}}
 				<input name="radioreponse" type="radio" ng-click="questions.nextQuestion()" value="{{reponse.reponse}}" ng-model="questions.reponse">
-			</label>
 		</label>
 		<input type="submit" value="Question suivante" ng-show="questions.nextStatut">
 	</form>
