@@ -113,9 +113,25 @@ app.controller('QuestionsCtrl', function($http, shuffleArray, $interval, $locati
 // Contrôleur de la page du resultat
 app.controller('ResultatCtrl', function($rootScope) {
 	let resultat = this;
-
 	resultat.resultatfinal = $rootScope.resultatfinal;
 
+	if (resultat.resultatfinal > 4) {
+		resultat.class = "vert";
+		resultat.message = "Même Chuck Norris n'a jamais été aussi sobre que vous ! Bonne route !";
+	} else if (resultat.resultatfinal >= 0) {
+		resultat.class = "vert";
+		resultat.message = "Vous semblez un peu stressé. Détendez-vous, tout va bien ! Vous pouvez-y aller, et surtout roulez tranquillement !";
+	} else if (resultat.resultatfinal < 0) {
+		resultat.class = "rouge";
+		resultat.message = "Avec des réponses pareilles, mieux vaut être prudent . Attendez un peu avant de reprendre la route.";
+	} else if (resultat.resultatfinal < -2) {
+		resultat.class = "rouge";
+		resultat.message = "Bon, il est définitement temps d'aller cuver votre alcool !!! Jetez immédiatement ces clés de voiture !";
+	}
+
+	resultat.submit = function() {
+
+	};
 });
 
 
