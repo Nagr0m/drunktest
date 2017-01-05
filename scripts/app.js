@@ -111,7 +111,7 @@ app.controller('QuestionsCtrl', function($http, shuffleArray, $interval, $locati
 });
 
 // Contrôleur de la page du resultat
-app.controller('ResultatCtrl', function($rootScope) {
+app.controller('ResultatCtrl', function($rootScope, $http) {
 	let resultat = this;
 	resultat.resultatfinal = $rootScope.resultatfinal;
 
@@ -126,11 +126,18 @@ app.controller('ResultatCtrl', function($rootScope) {
 		resultat.message = "Avec des réponses pareilles, mieux vaut être prudent . Attendez un peu avant de reprendre la route.";
 	} else if (resultat.resultatfinal < -2) {
 		resultat.class = "ko";
-		resultat.message = "Bon, il est définitement temps d'aller cuver votre alcool !!! Jetez immédiatement ces clés de voiture !";
+		resultat.message = "Bon, il est définitivement temps d'aller cuver votre alcool !!! Jetez immédiatement ces clés de voiture !";
 	}
 
 	resultat.submit = function() {
-
+		let score = { name : resultat.pseudo, score : resultat.resultatfinal, date : Date.now()};
+		console.log(score);
+		$http.get('https://api.myjson.com/bins/chuon').then(function(response){
+			resultat.scores = response.data;
+			resultat.scores.push(score);
+			console.log(resultat.scores);
+			$http.put('https://api.myjson.com/bins/chuon', resultat.scores);
+		});
 	};
 });
 
