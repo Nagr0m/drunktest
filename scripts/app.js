@@ -48,15 +48,17 @@ app.controller('ScoresCtrl', function($http) {
 app.controller('QuestionsCtrl', function($http, shuffleArray, $interval) {
 	let questions = this;
 	questions.nextStatut = false;
-
 	questions.list = [];
 	questions.actuel = [];
+	questions.index = 0;
+	questions.score = 1;
+
 	$http.get('/data.json').then(function(response){
-		questions.list = shuffleArray.shuffle(response.data);
-		questions.list = questions.list.slice(0, 5);
+		questions.temp = shuffleArray.shuffle(response.data);
+		questions.list = questions.temp.slice(0, 5);
 	});
 	
-	questions.index = 0;
+	
 	questions.actuel = questions.list[questions.index];
 	console.log(questions.list);
 
@@ -81,12 +83,17 @@ app.controller('QuestionsCtrl', function($http, shuffleArray, $interval) {
 	}, 1000/60);
 
 	questions.submit = function() {
-		questions.index++;
 		console.log(questions.reponse);
-		console.log(questions.list[questions.index].reponses);
+		console.log(questions.list[questions.index].reponses.find(function(a) {return a.valid === true;}).reponse);
+		if (questions.reponse === questions.list[questions.index].reponses.find(function(a) {return a.valid === true;}).reponse) {
+			questions.score = questions.score + 2;
+		} else {
+			questions.score = questions.score -2;
+		}
+
 		questions.reponse = undefined;
 		questions.timer = 100; // Réinitialisation du timer
-
+		questions.index++;
 	};
 	
 });
