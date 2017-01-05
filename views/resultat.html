@@ -5,7 +5,6 @@
 
 	<img src="{{resultat.img}}" alt="">
 
-
 	<p>{{resultat.message}}</p>
 
 	<form ng-submit="resultat.submit()">
@@ -13,7 +12,7 @@
 	        Votre pseudo :
 	        <input type="text" ng-model="resultat.pseudo">
 	    </label>
-	    <input type="submit" value="Enregistrer votre score">
+	    <input type="submit" value="Enregistrer votre score" ng-disabled="!resultat.pseudo">
 	</form>
 
 	<nav>
