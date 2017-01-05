@@ -62,6 +62,7 @@ app.controller('QuestionsCtrl', function($http, shuffleArray, $interval) {
 	questions.actuel = questions.list[questions.index];
 	console.log(questions.list);
 
+	// Button " Question Suivante "
 	questions.nextQuestion = function(){
 		questions.nextStatut = true;	
 	};
@@ -95,7 +96,7 @@ app.controller('QuestionsCtrl', function($http, shuffleArray, $interval) {
 		questions.timer = 100; // Réinitialisation du timer
 		questions.index++;
 	};
-	
+
 });
 
 
