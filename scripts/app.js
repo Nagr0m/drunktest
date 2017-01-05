@@ -117,15 +117,19 @@ app.controller('ResultatCtrl', function($rootScope) {
 
 	if (resultat.resultatfinal > 4) {
 		resultat.class = "ok";
+		resultat.img = "img/good.png"
 		resultat.message = "Même Chuck Norris n'a jamais été aussi sobre que vous ! Bonne route !";
 	} else if (resultat.resultatfinal >= 0) {
 		resultat.class = "ok";
+		resultat.img = "img/good.png"
 		resultat.message = "Vous semblez un peu stressé. Détendez-vous, tout va bien ! Vous pouvez-y aller, et surtout roulez tranquillement !";
 	} else if (resultat.resultatfinal < 0) {
 		resultat.class = "ko";
+		resultat.img = "img/cancel.png"
 		resultat.message = "Avec des réponses pareilles, mieux vaut être prudent . Attendez un peu avant de reprendre la route.";
 	} else if (resultat.resultatfinal < -2) {
 		resultat.class = "ko";
+		resultat.img = "img/cancel.png"
 		resultat.message = "Bon, il est définitement temps d'aller cuver votre alcool !!! Jetez immédiatement ces clés de voiture !";
 	}
 
