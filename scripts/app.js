@@ -64,7 +64,7 @@ app.controller('QuestionsCtrl', function($http, shuffleArray, $interval, $locati
 
 	// Affichage boutton "Question suivante"
 	questions.nextQuestion = function() {
-		questions.nextStatut = true;	
+		questions.nextStatut = true;
 	};
 
 	// Partie timer !
@@ -81,7 +81,7 @@ app.controller('QuestionsCtrl', function($http, shuffleArray, $interval, $locati
 
 	// Validation des questions
 	questions.submit = function() {
-		console.log(questions.index)
+		console.log(questions.index);
 		let bonnereponse = questions.list[questions.index].reponses.find(function(a) {return a.valid === true;}).reponse;
 		if (questions.reponse === bonnereponse) {
 			if (questions.timer >= 50) {
@@ -110,10 +110,12 @@ app.controller('QuestionsCtrl', function($http, shuffleArray, $interval, $locati
 
 });
 
+// Contrôleur de la page du resultat
 app.controller('ResultatCtrl', function($rootScope) {
 	let resultat = this;
 
 	resultat.resultatfinal = $rootScope.resultatfinal;
+
 });
 
 
