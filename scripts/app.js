@@ -82,7 +82,7 @@ app.controller('QuestionsCtrl', function($http, shuffleArray, $interval, $locati
 	// Validation des questions
 	questions.submit = function() {
 		console.log(questions.index);
-		let bonnereponse = questions.list[questions.index].reponses.find(function(a) {return a.valid === true;}).reponse;
+		let bonnereponse = questions.list[questions.index].correct;
 		if (questions.reponse === bonnereponse) {
 			if (questions.timer >= 50) {
 				questions.score = questions.score + 2;

@@ -2,86 +2,96 @@
     {
         "question" : "Calculez 2 + 96791 ?",
         "reponses" : [
-            {"reponse" : "OSEF !", "valid" : false},
-            {"reponse" : "96793", "valid" : true},
-            {"reponse" : "29763", "valid" : false},
-            {"reponse" : "92687", "valid" : false},
-            {"reponse" : "296793", "valid" : false}
-        ]
+            {"reponse" : "OSEF !"},
+            {"reponse" : "96793"},
+            {"reponse" : "29763"},
+            {"reponse" : "92687"},
+            {"reponse" : "296793"}
+        ],
+        "correct" : "96793"
     },
     {
         "question" : "Dans une course à pieds, je double le 2ème ! Je suis donc :",
         "reponses" : [
-            {"reponse" : "Le 2ème", "valid" : true},
-            {"reponse" : "Le 1er", "valid" : false},
-            {"reponse" : "J'ai gagné !", "valid" : false},
-            {"reponse" : "Le dernier", "valid" : false}
-        ]
+            {"reponse" : "Le 2ème"},
+            {"reponse" : "Le 1er"},
+            {"reponse" : "J'ai gagné !"},
+            {"reponse" : "Le dernier"}
+        ],
+        "correct" : "Le 2ème"
     },
     {
         "question" : "José a 290 timbres dans sa collection. Léa en a 250. Combien ont-ils de timbres en tout ?",
         "reponses" : [
-            {"reponse" : "530", "valid" : false},
-            {"reponse" : "560", "valid" : false},
-            {"reponse" : "540", "valid" : true},
-            {"reponse" : "550", "valid" : false}
-        ]
+            {"reponse" : "530"},
+            {"reponse" : "560"},
+            {"reponse" : "540"},
+            {"reponse" : "550"}
+        ],
+        "correct" : "540"
     },
     {
         "question" : "Un homme a-t-il le droit d'épouser la soeur de sa veuve ?",
         "reponses" : [
-            {"reponse" : "Oui", "valid" : false},
-            {"reponse" : "Non", "valid" : true}
-        ]
+            {"reponse" : "Oui"},
+            {"reponse" : "Non"}
+        ],
+        "correct" : "Non"
     },
     {
         "question" : "Un avion s'écrase à la frontière franco-espagnole. De quel cote de la frontière doit-on enterrer les rescapés ?",
         "reponses" : [
-            {"reponse" : "En France", "valid" : false},
-            {"reponse" : "En Espagne", "valid" : false},
-            {"reponse" : "Autre", "valid" : true}
-        ]
+            {"reponse" : "En France"},
+            {"reponse" : "En Espagne"},
+            {"reponse" : "Autre"}
+        ],
+        "correct" : "Autre"
     },
     {
         "question" : "Quelle est la capital du Danemark",
         "reponses" : [
-            {"reponse" : "Istanbul", "valid" : false},
-            {"reponse" : "Stockholm", "valid" : false},
-            {"reponse" : "Copenhague", "valid" : true},
-            {"reponse" : "Prague", "valid" : false}
-        ]
+            {"reponse" : "Istanbul"},
+            {"reponse" : "Stockholm"},
+            {"reponse" : "Copenhague"},
+            {"reponse" : "Prague"}
+        ],
+        "correct" : "Copenhague"
     },
     {
         "question" : "Si avant hier c'était Lundi, quel sera le jour la veille d'après demain ?",
         "reponses" : [
-            {"reponse" : "Mercredi", "valid" : false},
-            {"reponse" : "Jeudi", "valid" : true},
-            {"reponse" : "Vendredi", "valid" : false}
-        ]
+            {"reponse" : "Mercredi"},
+            {"reponse" : "Jeudi"},
+            {"reponse" : "Vendredi"}
+        ],
+        "correct" : "Jeudi"
     },
     {
         "question" : "La belle-mère de la soeur du père du cousin de la tante de ta mère m'a dit la date d'aujourd'hui. Qui m'a donné la date ?",
         "reponses" : [
-            {"reponse" : "Ta mère", "valid" : false},
-            {"reponse" : "Le père", "valid" : false},
-            {"reponse" : "La belle-mère", "valid" : true}
-        ]
+            {"reponse" : "Ta mère"},
+            {"reponse" : "Le père"},
+            {"reponse" : "La belle-mère"}
+        ],
+        "correct" : "La belle-mère"
     },{
         "question" : "Quelle est la réponse à la vie ?",
         "reponses" : [
-            {"reponse" : "L'amour", "valid" : false},
-            {"reponse" : "42", "valid" : true},
-            {"reponse" : "L'argent", "valid" : false},
-            {"reponse" : "40", "valid" : false},
-            {"reponse" : "Bender", "valid" : false}
-        ]
+            {"reponse" : "L'amour"},
+            {"reponse" : "42"},
+            {"reponse" : "L'argent"},
+            {"reponse" : "40"},
+            {"reponse" : "Bender"}
+        ],
+        "correct" : "42"
     },
     {
         "question" : "Quel est la formule chimique de l'acide carbonique ?",
         "reponses" : [
-            {"reponse" : "H2CO3", "valid" : true},
-            {"reponse" : "H2O", "valid" : false},
-            {"reponse" : "CO2H3U", "valid" : false}
-        ]
+            {"reponse" : "H2CO3"},
+            {"reponse" : "H2O"},
+            {"reponse" : "CO2H3U"}
+        ],
+        "correct" : "H2CO3"
     }
 ]
