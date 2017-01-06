@@ -41,6 +41,8 @@ app.controller('AccueilCtrl', function($location) {
 // Contrôleur de la page des scores
 app.controller('ScoresCtrl', function($http) {
 	let scores = this;
+	scores.sortType = '-date';
+	scores.sortReverse = false;
 	$http.get('https://api.myjson.com/bins/chuon').then(function(response){
 		scores.list = response.data;
 	});
@@ -78,7 +80,7 @@ app.controller('QuestionsCtrl', function($http, shuffleArray, $interval, $locati
 		questions.timer -= 100 / (MAX_TIME/ (1000/60) );
 		
 		if (questions.timer <= 0) {
-			questions.submit();
+			questions.nextQuestion();
 		}
 	}, 1000/60);
 
@@ -115,6 +117,7 @@ app.controller('ResultatCtrl', function($rootScope, $http) {
 	resultat.resultatfinal = $rootScope.resultatfinal;
 	resultat.alreadysave = false;
 
+	// Affichage du message correspondant au score
 	if (resultat.resultatfinal > 4) {
 		resultat.class = "ok";
 		resultat.img = "img/good.png"
@@ -133,6 +136,7 @@ app.controller('ResultatCtrl', function($rootScope, $http) {
 		resultat.message = "Bon, il est définitivement temps d'aller cuver votre alcool !!! Jetez immédiatement ces clés de voiture !";
 	}
 
+	// Enregistrement du score
 	resultat.submit = function() {
 		let score = { name : resultat.pseudo, score : resultat.resultatfinal, date : Date.now()};
 		$http.get('https://api.myjson.com/bins/chuon').then(function(response){

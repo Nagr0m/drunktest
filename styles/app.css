@@ -114,7 +114,11 @@
 	}
 	.questions label {
 		margin:15px 0;
+		padding: 15px 20px;
+		border: 1px solid lightgrey;
+		border-radius: 20px;
 	}
+	
 	.questions input[type=submit] {
 		background:#FF5656;
 		border:none;
@@ -184,7 +188,6 @@
 		width:100%;
 		margin:0 auto 50px;
 	}
-	.score-section table tr {}
 	.score-section table tr td {
 		width:30%;
 		text-align:center;
@@ -195,4 +198,12 @@
 	.score-section table tr td:first-child {
 		color:#FF5656;
 		text-transform:uppercase;
+	}
+	.score-section table tr th {
+		background:#F1F1F1;
+		padding: 5px 0;
+	}
+	.score-section table tr th a {
+		color: grey;
+		text-decoration: none;
 	}

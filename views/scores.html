@@ -6,7 +6,30 @@
 	<h1>Scores</h1>
 
 	<table>
-	    <tr ng-repeat="score in scores.list | orderBy:'-date'">
+		<tr>
+			<th>
+				<a href="" ng-click="scores.sortType = 'name'; scores.sortReverse = !scores.sortReverse">
+					Nom
+					<span ng-show="scores.sortType == 'name' && !scores.sortReverse" class="fa fa-caret-down"></span>
+					<span ng-show="scores.sortType == 'name' && scores.sortReverse" class="fa fa-caret-up"></span>
+				</a>
+			</th>
+			<th>
+				<a href="" ng-click="scores.sortType = 'score'; scores.sortReverse = !scores.sortReverse">
+					Score
+					<span ng-show="scores.sortType == 'score' && !scores.sortReverse" class="fa fa-caret-down"></span>
+					<span ng-show="scores.sortType == 'score' && scores.sortReverse" class="fa fa-caret-up"></span>
+				</a>
+			</th>
+			<th>
+				<a href="" ng-click="scores.sortType = '-date'; scores.sortReverse = !scores.sortReverse">
+					Date
+					<span ng-show="scores.sortType == '-date' && !scores.sortReverse" class="fa fa-caret-down"></span>
+					<span ng-show="scores.sortType == '-date' && scores.sortReverse" class="fa fa-caret-up"></span>
+				</a>
+			</th>
+		</tr>
+	    <tr ng-repeat="score in scores.list | orderBy:scores.sortType:scores.sortReverse">
 	        <td>{{score.name}}</td>
 	        <td>{{score.score}}</td>
 	        <td>{{score.date | date : "dd/MM/y - HH:mm" }}</td>
