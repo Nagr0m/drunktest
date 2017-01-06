@@ -136,7 +136,7 @@ app.controller('ResultatCtrl', function($rootScope, $http) {
 	resultat.submit = function() {
 		let score = { name : resultat.pseudo, score : resultat.resultatfinal, date : Date.now()};
 		$http.get('https://api.myjson.com/bins/chuon').then(function(response){
-			resultat.scores = resultat.data;
+			resultat.scores = response.data;
 			resultat.scores.push(score);
 			$http.put('https://api.myjson.com/bins/chuon', resultat.scores);
 			resultat.alreadysave = true;
