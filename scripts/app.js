@@ -114,6 +114,7 @@ app.controller('QuestionsCtrl', function($http, shuffleArray, $interval, $locati
 app.controller('ResultatCtrl', function($rootScope, $http) {
 	let resultat = this;
 	resultat.resultatfinal = $rootScope.resultatfinal;
+	resultat.alreadysave = false;
 
 	if (resultat.resultatfinal > 4) {
 		resultat.class = "ok";
@@ -137,6 +138,7 @@ app.controller('ResultatCtrl', function($rootScope, $http) {
 			resultat.scores.push(score);
 			console.log(resultat.scores);
 			$http.put('https://api.myjson.com/bins/chuon', resultat.scores);
+			resultat.alreadysave = true;
 		});
 	};
 });
