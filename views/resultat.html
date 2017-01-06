@@ -1,14 +1,22 @@
 <h1>Resultat</h1>
 
-<p>Votre résultat : {{resultat.resultatfinal}}</p>
+<div class="resultat-final {{resultat.class}}">
+	<p class="number-resultat">Votre résultat : {{resultat.resultatfinal}}</p>
 
+	<img src="{{resultat.img}}" alt="">
 
-<p class="{{resultat.class}}">{{resultat.message}}</p>
+	<p>{{resultat.message}}</p>
 
-<form ng-submit="resultat.submit()">
-    <label>
-        Votre pseudo :
-        <input type="text" ng-model="resultat.pseudo">
-    </label>
-    <input type="submit" value="Enregistrer votre score" ng-disabled="!resultat.pseudo || !resultat.resultatfinal || resultat.alreadysave">
-</form>
+	<form ng-submit="resultat.submit()">
+	    <label>
+	        Votre pseudo :
+	        <input type="text" ng-model="resultat.pseudo">
+	    </label>
+	    <input type="submit" value="Enregistrer votre score" ng-disabled="!resultat.pseudo || !resultat.resultatfinal || resultat.alreadysave">
+	</form>
+
+	<nav>
+		<a href="/#/questions"><< Refaire le test</a>
+		<a href="/#/scores">Tableau des scores >></a>
+	</nav>
+</div>
