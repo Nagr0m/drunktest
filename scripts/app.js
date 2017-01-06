@@ -89,18 +89,15 @@ app.controller('QuestionsCtrl', function($http, shuffleArray, $interval, $locati
 		if (questions.reponse === bonnereponse) {
 			if (questions.timer >= 50) {
 				questions.score = questions.score + 2;
-				console.log('true>50');
 			} else if (questions.timer < 50) {
 				questions.score = questions.score + 1;
-				console.log('true<50');
 			}
 		} else {
 			questions.score = questions.score -2;
-			console.log('false');
 		}
 		if (questions.index === 4) {
-			console.log('toto');
 			$rootScope.resultatfinal = questions.score;
+			$interval.cancel(interval);
 			$location.url('/resultat');
 			return;
 		}
@@ -139,14 +136,14 @@ app.controller('ResultatCtrl', function($rootScope, $http) {
 
 	resultat.submit = function() {
 		let score = { name : resultat.pseudo, score : resultat.resultatfinal, date : Date.now()};
-		console.log(score);
 		$http.get('https://api.myjson.com/bins/chuon').then(function(response){
-			resultat.scores = response.data;
+			resultat.scores = [];
 			resultat.scores.push(score);
 			console.log(resultat.scores);
 			$http.put('https://api.myjson.com/bins/chuon', resultat.scores);
 			resultat.alreadysave = true;
 		});
+		return;
 	};
 });
 
