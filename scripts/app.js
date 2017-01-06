@@ -58,8 +58,11 @@ app.controller('QuestionsCtrl', function($http, shuffleArray, $interval, $locati
 	// Initialisation des questions
 	$http.get('/data.json').then(function(response){
 		questions.temp = shuffleArray.shuffle(response.data);
-		questions.temp = questions.temp.slice(0, 5);
-		questions.list = questions.temp.map(function(a) {shuffleArray.shuffle(a.reponses); return a;});
+		questions.list = questions.temp.slice(0, 5);
+		questions.list = questions.temp.map(function(a) {
+			shuffleArray.shuffle(a.reponses);
+			return a;
+		});
 	});
 
 	// Affichage boutton "Question suivante"
@@ -78,6 +81,10 @@ app.controller('QuestionsCtrl', function($http, shuffleArray, $interval, $locati
 			questions.nextQuestion();
 		}
 	}, 1000/60);
+
+	questions.randomfilter = function() {
+		return 0.5 - Math.random();
+	};
 
 	// Validation des questions
 	questions.submit = function() {

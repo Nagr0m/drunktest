@@ -10,7 +10,7 @@
 	<form ng-submit="resultat.submit()">
 	    <label>
 	        Votre pseudo :
-	        <input type="text" ng-model="resultat.pseudo">
+	        <input type="text" ng-model="resultat.pseudo" ng-disabled="resultat.alreadysave">
 	    </label>
 	    <input type="submit" value="Enregistrer votre score" ng-disabled="!resultat.pseudo || !resultat.resultatfinal || resultat.alreadysave">
 	</form>
