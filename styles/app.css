@@ -131,8 +131,15 @@
 
 
 /* RESULTAT STYLE */
-	.resultat-final {}
-	.resultat-final .number-resultat {
+	.resultat-final {
 		text-align:center;
+	}
+	.resultat-final .number-resultat {
 		text-transform:uppercase;
+		font-weight:700;
+	}
+	.resultat-final img {
+		width:35%;
+		height:auto;
+		margin:0 auto;
 	}
