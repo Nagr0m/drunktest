@@ -39,7 +39,7 @@
 		height:auto;
 		padding:10px 20px;
 		background:#FFF;
-		margin:5% auto;
+		margin:5% auto 5%;
 	}
 	section h1 {
 		text-align:center;
@@ -79,6 +79,7 @@
 		padding:8px 10px;
 		color:#FFF;
 		cursor:pointer;
+		outline:none;
 	}
 	#first-form input[type=submit]:disabled {
 		background:#999;
@@ -126,9 +127,8 @@
 		left:50%;
 		transform:translateX(-50%);
 		font-weight:700;
+		outline:none;
 	}
-
-
 
 /* RESULTAT STYLE */
 	.resultat-final {
@@ -156,6 +156,7 @@
 		padding:8px 10px;
 		color:#FFF;
 		cursor:pointer;
+		outline:none;
 	}
 	.resultat-final input[type=submit]:disabled {
 		background:#999;
@@ -166,4 +167,32 @@
 	}
 	.resultat-final nav a:first-child {
 		float:left;
+	}
+	.pop-up {
+		text-transform:uppercase;
+		color:#9ED763;
+		font-weight:700;
+		margin:15px 0;
+		visibility:hidden;
+	}
+
+/* SCORE STYLE */
+	.score-section nav a {
+		text-align:left;
+	}
+	.score-section table {
+		width:100%;
+		margin:0 auto 50px;
+	}
+	.score-section table tr {}
+	.score-section table tr td {
+		width:30%;
+		text-align:center;
+		background:#F6F6F6;
+		border:none;
+		padding:3px 0;
+	}
+	.score-section table tr td:first-child {
+		color:#FF5656;
+		text-transform:uppercase;
 	}

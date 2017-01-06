@@ -1,9 +1,15 @@
-<h1>Scores</h1>
+<div class="score-section">
+	<nav>
+		<a href="/#/accueil">Faire le test >></a>
+	</nav>
 
-<table>
-    <tr ng-repeat="score in scores.list">
-        <td>{{score.name}}</td>
-        <td>{{score.score}}</td>
-        <td>{{score.date | date : "dd/MM/y - HH:mm" }}</td>
-    </tr>
-</table>
+	<h1>Scores</h1>
+
+	<table>
+	    <tr ng-repeat="score in scores.list | orderBy:'-date'">
+	        <td>{{score.name}}</td>
+	        <td>{{score.score}}</td>
+	        <td>{{score.date | date : "dd/MM/y - HH:mm" }}</td>
+	    </tr>
+	</table>
+</div>
