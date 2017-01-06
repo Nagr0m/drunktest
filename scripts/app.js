@@ -24,7 +24,15 @@ app.config(function($routeProvider) {
 		.when('/resultat', {
 			templateUrl  : 'views/resultat.html',
 			controller   : 'ResultatCtrl',
-			controllerAs : 'resultat'
+			controllerAs : 'resultat',
+			resolve 	 : {
+				auth : function($location, $rootScope) {
+					if (!$rootScope.auth) {
+						$rootScope.auth = false;
+						$location.url('/');
+					}
+				}
+			}
 		})
 		.otherwise({
 			redirectTo	 : '/accueil'
@@ -33,7 +41,7 @@ app.config(function($routeProvider) {
 });
 
 // Contrôleur de la page d'accueil
-app.controller('AccueilCtrl', function($location) {
+app.controller('AccueilCtrl', function() {
 	let accueil = this;
 	accueil.confirm = false;
 });
@@ -98,6 +106,7 @@ app.controller('QuestionsCtrl', function($http, shuffleArray, $interval, $locati
 		}
 		if (questions.index === 4) {
 			$rootScope.resultatfinal = questions.score;
+			$rootScope.auth = true;
 			$interval.cancel(interval);
 			$location.url('/resultat');
 			return;
