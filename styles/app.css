@@ -39,7 +39,7 @@
 		height:auto;
 		padding:10px 20px;
 		background:#FFF;
-		margin:5% auto 0;
+		margin:5% auto;
 	}
 	section h1 {
 		text-align:center;
@@ -141,5 +141,29 @@
 	.resultat-final img {
 		width:35%;
 		height:auto;
-		margin:0 auto;
+		margin:50px auto;
+	}
+	.resultat-final label {
+		display:inline;
+	}
+	.resultat-final input[type=text] {
+		padding:6px 0;
+		outline:none;
+	}
+	.resultat-final input[type=submit] {
+		background:#FF5656;
+		border:none;
+		padding:8px 10px;
+		color:#FFF;
+		cursor:pointer;
+	}
+	.resultat-final input[type=submit]:disabled {
+		background:#999;
+		cursor:auto;
+	}
+	.resultat-final nav {
+		margin:25px 0;
+	}
+	.resultat-final nav a:first-child {
+		float:left;
 	}
