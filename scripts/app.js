@@ -84,7 +84,6 @@ app.controller('QuestionsCtrl', function($http, shuffleArray, $interval, $locati
 
 	// Validation des questions
 	questions.submit = function() {
-		console.log(questions.index);
 		let bonnereponse = questions.list[questions.index].correct;
 		if (questions.reponse === bonnereponse) {
 			if (questions.timer >= 50) {
@@ -137,8 +136,8 @@ app.controller('ResultatCtrl', function($rootScope, $http) {
 	resultat.submit = function() {
 		let score = { name : resultat.pseudo, score : resultat.resultatfinal, date : Date.now()};
 		$http.get('https://api.myjson.com/bins/chuon').then(function(response){
+			resultat.scores = resultat.data;
 			resultat.scores.push(score);
-			console.log(resultat.scores);
 			$http.put('https://api.myjson.com/bins/chuon', resultat.scores);
 			resultat.alreadysave = true;
 		});
