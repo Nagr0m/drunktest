@@ -1,5 +1,9 @@
 <h1>Scores</h1>
 
-<ul>
-    <li></li>
-</ul>
+<table>
+    <tr ng-repeat="score in scores.list">
+        <td>{{score.name}}</td>
+        <td>{{score.score}}</td>
+        <td>{{score.date | date : "dd/MM/y - HH:mm" }}</td>
+    </tr>
+</table>

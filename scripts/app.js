@@ -42,7 +42,7 @@ app.controller('AccueilCtrl', function($location) {
 app.controller('ScoresCtrl', function($http) {
 	let scores = this;
 	$http.get('https://api.myjson.com/bins/chuon').then(function(response){
-		console.log(response);
+		scores.list = response.data;
 	});
 });
 
@@ -78,13 +78,9 @@ app.controller('QuestionsCtrl', function($http, shuffleArray, $interval, $locati
 		questions.timer -= 100 / (MAX_TIME/ (1000/60) );
 		
 		if (questions.timer <= 0) {
-			questions.nextQuestion();
+			questions.submit();
 		}
 	}, 1000/60);
-
-	questions.randomfilter = function() {
-		return 0.5 - Math.random();
-	};
 
 	// Validation des questions
 	questions.submit = function() {
